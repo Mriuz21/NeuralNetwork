@@ -1,6 +1,5 @@
 import numpy as np
 
-np.random.seed(0)
 class Layer_Dense:
   def __init__(self,n_inputs,n_neurons):
     self.weights = 0.10*np.random.randn(n_inputs,n_neurons)
@@ -16,6 +15,7 @@ class Layer_Dense:
   #Handle save and load
   def save(self, file):
      np.savez(file, weights=self.weights, biases=self.biases)
+     
   def load(self, file):
      data = np.load(file)
      self.weights = data['weights']
